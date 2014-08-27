@@ -7,7 +7,7 @@ doIsomap <- function (dist, k=3, col, l)
 {
 	
 	iso <- isomap(dist, k=k)
-	pdf("isomap.pdf", width = 20, height = 10)
+	pdf("isomap.pdf", width = 30, height = 15)
 #	par(mfrow=c(1,1))
 	
 	par(mfrow=c(1,2))
@@ -29,14 +29,12 @@ doIsomap <- function (dist, k=3, col, l)
 
 
 weightedDist <- function(data, weight) {
-	raw.cor <- cor(as.numeric(data))
-
-	
+	raw.cor <- cor(data, method = "spearman")
 }
 
 plotMDS <- function(distance, colors, cell.labels){
   CLUST <- hclust(distance)
-  pdf("mds.pdf")
+  pdf("mds.pdf", width=10, height=20)
   par(mfrow=c(2,1))
   par(cex=0.5)
   plot(CLUST, labels=cell.labels, main="", xlab="", sub="", axes=F, ylab="")
